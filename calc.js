@@ -5,27 +5,53 @@ let dig = ''
 let op = ''
 answer.textContent = ''
 function num(n) {
-    dig += String(n)
-    answer.textContent = dig
+    if (opct.textContent == '=') {
+        void(0)
+    }
+    else {
+        dig += String(n)
+        answer.textContent = dig
+    }
 }
 
 let dig1 = 0
 function add() {
-    dig1 = dig
-    dig = ''
-    op = '+'
-    digct.textContent = dig1
-    opct.textContent = '+'
-    answer.textContent = ''
+    if (opct.textContent == '+') {
+        void(0)
+    }
+    else {
+        if (opct.textContent == '=') {
+            dig1 = answer.textContent
+        }
+        else {
+            dig1 = dig
+        }
+        dig = ''
+        op = '+'
+        digct.textContent = dig1
+        opct.textContent = '+'
+        answer.textContent = ''
+    }
 }
 
 function subtract() {
-    dig1 = dig
-    dig = ''
-    op = '-'
-    digct.textContent = dig1
-    opct.textContent = '-'
-    answer.textContent = ''
+    if (opct.textContent == '-') {
+        void(0)
+    }
+    else {
+        if (opct.textContent == '=') {
+            dig1 = answer.textContent
+        }
+        else {
+            dig1 = dig
+        }
+        dig = ''
+        op = '-'
+        digct.textContent = dig1
+        opct.textContent = '-'
+        answer.textContent = ''
+
+    }
 
 }
 
@@ -37,9 +63,9 @@ function clr() {
     opct.textContent = ''
     answer.textContent = ''
 }
-
+let total = 0
 function equals() {
-    if (dig1 == 0) {
+    if (dig1 == 0 && opct.textContent !== '=')  {
         digct.textContent = dig
         opct.textContent = '='
         answer.textContent = dig
